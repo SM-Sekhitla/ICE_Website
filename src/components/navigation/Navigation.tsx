@@ -97,12 +97,7 @@ export function Navigation() {
               <NavLink key={link.path} to={link.path} end={link.path === "/"}>
                 {({ isActive }) => (
                   <>
-                    <span className="nav-label-window">
-                      <span className="nav-label-original">{link.label}</span>
-                      <span className="nav-label-copy" aria-hidden="true">
-                        {link.label}
-                      </span>
-                    </span>
+                    <span className="nav-label-window">{link.label}</span>
                     {isActive && (
                       <motion.span
                         className="nav-active-line"

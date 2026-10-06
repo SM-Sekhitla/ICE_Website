@@ -5,7 +5,7 @@ export const values = [
   "Extreme Ownership",
   "Intelligence",
   "Commitment",
-  "Entrepreneurial Self-efficacy",
+  "Entrepreneurial Mindset",
   "Fairness",
   "Integrity",
   "Loyalty",

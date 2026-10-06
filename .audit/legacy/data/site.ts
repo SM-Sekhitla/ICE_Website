@@ -222,7 +222,7 @@ export const ICE_VALUES = [
   { num: "03", word: "EXTREME OWNERSHIP" },
   { num: "04", word: "INTELLIGENCE" },
   { num: "05", word: "COMMITMENT" },
-  { num: "06", word: "ENTREPRENEURIAL SELF-EFFICACY" },
+  { num: "06", word: "ENTREPRENEURIAL MINDSET" },
   { num: "07", word: "FAIRNESS" },
   { num: "08", word: "INTEGRITY" },
   { num: "09", word: "LOYALTY" },

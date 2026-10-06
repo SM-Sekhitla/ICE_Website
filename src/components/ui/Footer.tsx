@@ -65,8 +65,38 @@ export function Footer() {
           </Link>
         ))}
       </div>
-      <div className="footer-wordmark" aria-hidden="true">
-        ICE.
+      <div className="footer-signature" aria-hidden="true">
+        <div className="footer-equations" aria-hidden="true">
+          {[
+            "θₜ₊₁ = θₜ − η∇L(θₜ)",
+            "P(A|B) = P(B|A)P(A) / P(B)",
+            "T(n) = 2T(n/2) + n",
+            "ŷ = σ(Wx + b)",
+            "H(X) = −Σ p(x) log₂ p(x)",
+            "∇²f = Σ ∂²f / ∂xᵢ²",
+            "L = (1/n) Σ(yᵢ − ŷᵢ)²",
+            "f(x) = wᵀx + b",
+            "O(n log n)",
+            "Σ = E[(X − μ)(X − μ)ᵀ]",
+            "Aw = λw",
+            "∇f = (∂f/∂x₁, …, ∂f/∂xₙ)",
+            "σ(z) = 1 / (1 + e⁻ᶻ)",
+            "E[X] = Σ x p(x)",
+            "Var(X) = E[X²] − E[X]²",
+            "z = (x − μ) / σ",
+            "A = UΣVᵀ",
+            "‖x‖₂ = √(Σ xᵢ²)",
+            "P(A ∩ B) = P(A|B)P(B)",
+            "D(p ‖ q) = Σ pᵢ ln(pᵢ/qᵢ)",
+            "hₜ = tanh(Whₜ₋₁ + Uxₜ + b)",
+            "β̂ = (XᵀX)⁻¹Xᵀy",
+            "F₁ = 2PR / (P + R)",
+            "∫ p(x) dx = 1",
+          ].map((equation) => (
+            <span key={equation}>{equation}</span>
+          ))}
+        </div>
+        <div className="footer-wordmark">ICE.</div>
       </div>
       <div className="footer-bottom mono">
         <span>Powered by: ICEPTY(LTD) © {new Date().getFullYear()}</span>

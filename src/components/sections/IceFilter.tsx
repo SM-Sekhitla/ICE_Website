@@ -40,7 +40,7 @@ export function IceFilter({ number = "04" }: { number?: string }) {
                   {value.split(/(\s+|-)/).map((word, index) =>
                     /^[A-Za-z]/.test(word) ? (
                       <span className="value-word" key={index}>
-                        <span className="value-initial">{word[0]}</span>
+                        <span className={index === 0 ? "value-initial" : undefined}>{word[0]}</span>
                         {word.slice(1)}
                       </span>
                     ) : (

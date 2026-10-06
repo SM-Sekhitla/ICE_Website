@@ -222,24 +222,6 @@
   overflow: hidden;
   line-height: 1.8;
 }
-.nav-label-original,
-.nav-label-copy {
-  display: block;
-  transition: transform 0.4s var(--motion-ease);
-}
-.nav-label-copy {
-  position: absolute;
-  inset: 0;
-  transform: translateY(110%);
-}
-.desktop-nav a:hover .nav-label-original,
-.desktop-nav a:focus-visible .nav-label-original {
-  transform: translateY(-110%);
-}
-.desktop-nav a:hover .nav-label-copy,
-.desktop-nav a:focus-visible .nav-label-copy {
-  transform: translateY(0);
-}
 .nav-active-line {
   opacity: 1;
   position: absolute;
@@ -257,13 +239,11 @@
   overflow: hidden;
   transition:
     background 0.3s,
-    color 0.3s,
-    transform 0.3s;
+    color 0.3s;
 }
 .nav-contact:hover {
   background: white;
   color: var(--ice-primary);
-  transform: translateY(-2px);
 }
 .navigation[data-surface="light"] .nav-contact:hover {
   background: var(--ice-primary);
@@ -283,7 +263,6 @@
 }
 .mobile-nav a:hover,
 .mobile-nav a[aria-current="page"] {
-  padding-left: 12px;
   color: var(--ice-primary-light);
 }
 @media (max-width: 760px) {
