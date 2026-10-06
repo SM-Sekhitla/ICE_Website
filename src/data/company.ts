@@ -13,7 +13,7 @@ export const company = {
   vision:
     "To lead in African-owned innovation by delivering excellence in IT, software solutions, and data analytics empowering organizations to succeed in the digital age.",
   mission:
-    "ICE delivers cutting-edge technology and digital transformation solutions tailored to each client's needs, aiming to boost efficiency, drive growth, and support sustainable development.",
+    "ICE delivers cutting-edge technology and digital transformation solutions tailored to each client's needs, aiming to boost efficiency, drive growth, and support sustainable development within Africa and beyond.",
   tagline: "Like ICE, we blend in and make a solution.",
   address: ["1059 Francis Baard", "Hatfield, Pretoria, Gauteng"],
   emails: ["bdo@ice4po.co.za", "info@ice4po.co.za"],

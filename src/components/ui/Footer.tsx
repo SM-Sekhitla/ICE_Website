@@ -1,3 +1,4 @@
+import { ArrowIcon } from "@/components/ui/ArrowIcon";
 import { Link } from "react-router-dom";
 import { company } from "@/data/company";
 import { navigation } from "@/data/navigation";
@@ -45,7 +46,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {social.label} ↗
+                {social.label} <ArrowIcon />
               </a>
             ))}
           </div>
@@ -70,7 +71,7 @@ export function Footer() {
       <div className="footer-bottom mono">
         <span>Powered by: ICEPTY(LTD) © {new Date().getFullYear()}</span>
         <span>Industrial Computing Engineering / Established 2012</span>
-        <a href="#main-content">Back to top ↑</a>
+        <a href="#main-content">Back to top <ArrowIcon direction="up" /></a>
       </div>
     </footer>
   );

@@ -1,3 +1,4 @@
+import { ArrowIcon } from "@/components/ui/ArrowIcon";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { services } from "@/data/services";
@@ -7,7 +8,7 @@ export function Capabilities({ full = false }: { full?: boolean }) {
   return (
     <section className="section brand-section" id="capabilities">
       <div className="section-label mono">
-        02 / Our services <span>Technology with purpose</span>
+        {full ? "01" : "02"} / Our services <span>Technology with purpose</span>
       </div>
       <div className="capability-layout">
         <div className="capability-intro">
@@ -54,14 +55,14 @@ export function Capabilities({ full = false }: { full?: boolean }) {
                   to={`/contact-us?service=${encodeURIComponent(service.title)}`}
                   className="text-link"
                 >
-                  Discuss this service <span aria-hidden="true">↗</span>
+                  Discuss this service <span aria-hidden="true"><ArrowIcon /></span>
                 </Link>
               </div>
             </div>
           ))}
           {!full && (
             <Link className="text-link all-services" to="/our-services">
-              View all services <span aria-hidden="true">↗</span>
+              View all services <span aria-hidden="true"><ArrowIcon /></span>
             </Link>
           )}
         </div>

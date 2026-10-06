@@ -1,3 +1,5 @@
+import { Menu, X } from "lucide-react";
+import { ArrowIcon } from "@/components/ui/ArrowIcon";
 import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { navigation } from "@/data/navigation";
@@ -118,16 +120,17 @@ export function Navigation() {
             ))}
           </nav>
           <Link className="nav-contact" to="/contact-us">
-            Reach out ↗
+            Reach out <ArrowIcon />
           </Link>
           <button
             ref={toggle}
             className="menu-toggle"
+            aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             aria-controls="mobile-navigation"
             onClick={() => setOpen(!open)}
           >
-            {open ? "Close" : "Menu"}
+            {open ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
           </button>
         </div>
         <AnimatePresence initial={false}>

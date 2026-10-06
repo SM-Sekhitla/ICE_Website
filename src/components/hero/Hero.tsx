@@ -1,3 +1,4 @@
+import { ArrowIcon } from "@/components/ui/ArrowIcon";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import {
@@ -40,7 +41,7 @@ export function Hero() {
             </p>
           </div>
           <Link className="button button-red" to="/our-services">
-            Explore our capabilities <span aria-hidden="true">↗</span>
+            Explore our capabilities <span aria-hidden="true"><ArrowIcon /></span>
           </Link>
         </motion.div>
         <div className="hero-art">
@@ -75,7 +76,7 @@ export function Hero() {
       </div>
       <div className="hero-bottom mono">
         <a href="#about-ice">
-          Scroll to discover <span aria-hidden="true">↓</span>
+          Scroll to discover <span aria-hidden="true"><ArrowIcon direction="down" /></span>
         </a>
         <span>{company.tagline}</span>
         <span>01 — 12</span>

@@ -1,3 +1,4 @@
+import { ArrowIcon } from "@/components/ui/ArrowIcon";
 import { useEffect, useRef, useState } from "react";
 import { useInView, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -50,7 +51,7 @@ export function Introduction({ full = false }: { full?: boolean }) {
           {full && company.paragraphs.slice(1).map((p) => <p key={p}>{p}</p>)}
           {!full && (
             <Link className="text-link" to="/about-us">
-              The ICE story <span aria-hidden="true">↗</span>
+              The ICE story <span aria-hidden="true"><ArrowIcon /></span>
             </Link>
           )}
         </div>

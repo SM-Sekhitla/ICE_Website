@@ -1,3 +1,4 @@
+import { ArrowIcon } from "@/components/ui/ArrowIcon";
 import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { products } from "@/data/products";
@@ -64,13 +65,13 @@ export function ProductsPage() {
                 className="text-link"
                 to={`/contact-us?product=${encodeURIComponent(product.title)}`}
               >
-                Request demo <span aria-hidden="true">↗</span>
+                Request demo <span aria-hidden="true"><ArrowIcon /></span>
               </Link>
             </div>
           </motion.article>
         ))}
       </section>
-      <CallToAction />
+      <CallToAction number={products.length + 1} />
     </>
   );
 }

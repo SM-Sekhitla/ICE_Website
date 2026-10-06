@@ -1,8 +1,5 @@
 import { Introduction } from "@/components/sections/Introduction";
 import { Vision } from "@/components/sections/Vision";
-import { IceFilter } from "@/components/sections/IceFilter";
-import { People } from "@/components/sections/BrandStory";
-import { CallToAction } from "@/components/sections/CallToAction";
 export function AboutPage() {
   return (
     <>
@@ -17,9 +14,6 @@ export function AboutPage() {
       </header>
       <Introduction full />
       <Vision />
-      <IceFilter number="10" />
-      <People />
-      <CallToAction />
     </>
   );
 }

@@ -45,4 +45,10 @@ export const clients = [
     sector: "Holdings",
     image: "/brand/moletsi11.jpeg",
   },
+  // Logo and client name supplied by the user.
+  {
+    name: "Afrique 360 Solutions",
+    sector: "Private sector",
+    image: "/brand/afrique-360-solutions.png",
+  },
 ];

@@ -25,6 +25,9 @@ export function ClientsPage() {
         </p>
       </header>
       <section className="section">
+        <div className="section-label mono">
+          01 / Our clients <span>Government + Private sector</span>
+        </div>
         <div
           className="client-controls"
           role="group"
@@ -57,7 +60,7 @@ export function ClientsPage() {
           ))}
         </div>
       </section>
-      <CallToAction />
+      <CallToAction number={2} />
     </>
   );
 }

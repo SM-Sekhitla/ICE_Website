@@ -16,7 +16,7 @@ export function CapabilitiesPage() {
         </p>
       </header>
       <Capabilities full />
-      <CallToAction />
+      <CallToAction number={2} />
     </>
   );
 }

@@ -1,7 +1,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { values } from "@/data/values";
 import { ParallaxImage } from "@/components/animations/ParallaxImage";
-export function IceFilter({ number = "05" }: { number?: string }) {
+export function IceFilter({ number = "04" }: { number?: string }) {
   const reduced = useReducedMotion();
   return (
     <section className="section filter-section" id="ice-filter">

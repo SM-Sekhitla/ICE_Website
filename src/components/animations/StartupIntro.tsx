@@ -1,3 +1,4 @@
+import { ArrowIcon } from "@/components/ui/ArrowIcon";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 
@@ -53,7 +54,7 @@ export function StartupIntro({ onComplete }: { onComplete: () => void }) {
         transition={{ duration: 0.95, delay: 0.1, ease: "easeInOut" }}
       />
       <button className="startup-skip mono" onClick={onComplete}>
-        Skip intro ↗
+        Skip intro <ArrowIcon />
       </button>
     </motion.div>
   );

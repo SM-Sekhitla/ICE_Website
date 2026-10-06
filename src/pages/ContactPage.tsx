@@ -1,3 +1,4 @@
+import { ArrowIcon } from "@/components/ui/ArrowIcon";
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { company } from "@/data/company";
@@ -116,7 +117,7 @@ export function ContactPage() {
             email {company.emails[0]} directly.
           </p>
           <button className="button button-red" type="submit">
-            Prepare email <span aria-hidden="true">↗</span>
+            Prepare email <span aria-hidden="true"><ArrowIcon /></span>
           </button>
           {prepared && (
             <p className="full-field form-note" role="status">

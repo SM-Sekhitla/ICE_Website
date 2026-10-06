@@ -1,3 +1,4 @@
+import { ArrowIcon } from "@/components/ui/ArrowIcon";
 import { lazy, Suspense, useCallback, useEffect, useState } from "react";
 import {
   BrowserRouter,
@@ -116,7 +117,7 @@ function SiteRoutes() {
                 <div className="not-found">
                   <h1>Page not found.</h1>
                   <Link className="text-link" to="/">
-                    Return to ICE home ↗
+                    Return to ICE home <ArrowIcon />
                   </Link>
                 </div>
               }
@@ -142,7 +143,7 @@ function ArchivePage({ title }: { title: string }) {
         className="text-link"
         to={title === "Careers" ? "/contact-us" : "/about-us"}
       >
-        {title === "Careers" ? "Contact ICE" : "About ICE"} ↗
+        {title === "Careers" ? "Contact ICE" : "About ICE"} <ArrowIcon />
       </Link>
     </section>
   );

@@ -6,7 +6,7 @@ export function Vision() {
     <>
       <section className="section vision-section">
         <div className="section-label mono">
-          08 / Vision <span>African-owned innovation</span>
+          02 / Vision <span>African-owned innovation</span>
         </div>
         <h2>
           {["TO LEAD IN", "AFRICAN-OWNED", "INNOVATION."].map((line, i) => (
@@ -25,7 +25,7 @@ export function Vision() {
       </section>
       <section className="section mission-section">
         <div className="section-label mono">
-          09 / Mission <span>Transformation with impact</span>
+          03 / Mission <span>Transformation with impact</span>
         </div>
         <div className="editorial-split">
           <h2>
