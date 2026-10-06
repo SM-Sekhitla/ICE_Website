@@ -1,0 +1,12 @@
+export { HomePage } from '../src/pages/HomePage';
+export { AboutPage } from '../src/pages/AboutPage';
+export { CapabilitiesPage } from '../src/pages/CapabilitiesPage';
+export { ProductsPage } from '../src/pages/ProductsPage';
+export { ClientsPage } from '../src/pages/ClientsPage';
+export { ContactPage } from '../src/pages/ContactPage';
+export { MemoryRouter } from 'react-router-dom';
+export { company } from '../src/data/company';
+export { services } from '../src/data/services';
+export { products } from '../src/data/products';
+export { clients } from '../src/data/clients';
+export { values } from '../src/data/values';

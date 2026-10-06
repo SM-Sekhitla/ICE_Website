@@ -1,0 +1,18 @@
+import { readFileSync, writeFileSync } from 'node:fs';
+const read = name => readFileSync(`.audit/${name}.html`, 'utf8');
+const clean = text => text.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').trim();
+const matches = (html, pattern) => [...html.matchAll(pattern)];
+const write = (file, name, data) => writeFileSync(`src/data/${file}.ts`, `// Verified against ice4ir.com, 2026-09-28. See .audit/CONTENT-MAP.md.\nexport const ${name} = ${JSON.stringify(data, null, 2)};\n`);
+const about = read('about-us');
+const paragraphs = matches(about, /<p class="about-paragraph">([\s\S]*?)<\/p>/g).map(m => clean(m[1]));
+const purpose = matches(about, /<p class="box-text">([\s\S]*?)<\/p>/g).map(m => clean(m[1]));
+write('company', 'company', { name: 'ICE', fullName: 'Industrial Computing Engineering (ICE) PTY LTD', established: 2012, teamSize: 30, experience: 100, paragraphs, vision: purpose[0], mission: purpose[1], tagline: 'Like ICE, we blend in and make a solution.', address: ['1059 Francis Baard', 'Hatfield, Pretoria, Gauteng'], emails: ['bdo@ice4po.co.za', 'info@ice4po.co.za'], hours: 'Monday – Friday / 08:00–16:00', footer: clean(read('home').match(/<p class="footer-description">([\s\S]*?)<\/p>/)[1]), socials: [{label:'Facebook',url:'https://www.facebook.com/share/1C5Y51Bjgb/?mibextid=wwXIfr'},{label:'LinkedIn',url:'https://www.linkedin.com/in/ice-industrial-computing-engineering-14663831a'},{label:'Instagram',url:'https://www.instagram.com/industrialcomputingengineering'}] });
+write('values','values',matches(about, /<div class="value-card hover-lift">(.*?)<\/div>/g).map(m=>clean(m[1])));
+write('services','services',matches(read('our-services'), /<h3 class="service-title">(.*?)<\/h3>\s*<p class="service-description">(.*?)<\/p>/g).map((m,i)=>({id:`service-${i+1}`,title:clean(m[1]),description:clean(m[2])})));
+const products=read('our-products').split('<div class="product-card hover-lift fade-in-soft">').slice(1).map((block,i)=>{ const img=block.match(/<img src="([^"]+)" alt="([^"]+)"/); return {id:`product-${i+1}`,title:img?img[2].replace(' Logo',''):'Express Processes',subtitle:i===3?'Rapid Workflow Automation':'',image:img?'/brand/'+img[1].split('/').pop():null,description:clean(block.match(/<p class="product-description">([\s\S]*?)<\/p>/)[1]),features:matches(block.split('Request Demo')[0],/<span class="feature-dot"><\/span><span>(.*?)<\/span>/g).map(m=>clean(m[1]))};});
+write('products','products',products);
+const clientHtml=read('our-clients');
+const clients=matches(clientHtml, /<img src="([^"]+)" alt="([^"]+)" class="client-logo">[\s\S]*?<h3[^>]*>(.*?)<\/h3>[\s\S]*?<p[^>]*>(.*?)<\/p>/g).map(m=>({name:clean(m[3]),sector:clean(m[4]),image:'/brand/'+m[1].split('/').pop()}));
+write('clients','clients',clients);
+write('navigation','navigation',[{label:'Home',path:'/'},{label:'About',path:'/about-us'},{label:'Services',path:'/our-services'},{label:'Products',path:'/our-products'},{label:'Clients',path:'/our-clients'},{label:'Contact',path:'/contact-us'}]);
+console.log({paragraphs:paragraphs.length,products:products.length,clients:clients.length});

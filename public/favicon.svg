@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 218 194">
+  <title>Industrial Computing Engineering</title>
+  <rect width="218" height="194" fill="#c1121f"/>
+  <g fill="none" stroke="#fff" stroke-width="19">
+    <path d="M 53.85 42.85 A 78 78 0 0 1 164.15 42.85" />
+    <path d="M 172.89 53.26 A 78 78 0 0 1 183.98 76.50" />
+    <path d="M 186.24 87.14 A 78 78 0 0 1 186.24 108.86" />
+    <path d="M 183.18 122.10 A 78 78 0 0 1 171.29 144.94" />
+    <path d="M 162.20 155.05 A 78 78 0 0 1 55.80 155.05" />
+    <path d="M 46.71 144.94 A 78 78 0 0 1 33.66 77.81" />
+    <path d="M 38.31 65.04 A 78 78 0 0 1 45.11 53.26" />
+  </g>
+  <path d="M 141 63 L 77 98 Q 72 101 78 104 L 141 133" fill="none" stroke="#fff" stroke-width="19" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
