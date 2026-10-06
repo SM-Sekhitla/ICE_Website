@@ -1,0 +1,5 @@
+{
+  "tool": "Built-in image_gen",
+  "asset": "public/brand/bruce-standing.png",
+  "prompt": "Use case: precise-object-edit. Edit target: the most recent attached reference image, BRUCE the friendly white silver 3D robot with dark round eyes and red accents. Asset type: transparent PNG website chatbot mascot. Remove the cup completely and remove the cropped person at the far left. Preserve BRUCE's recognizable face, helmet, red ear accents, rounded white silver armor, proportions and chest insignia. Full body, head to feet, front-facing eyes looking directly at viewer, cool relaxed standing pose with one hand resting on his hip and other arm casually down, slight confident lean, friendly smile, both feet visible. Centered with only a small transparent margin around whole body. Polished 3D studio render. No text, props, floor, background, or extra characters. Genuine transparent background. Eyes open."
+}

@@ -17,6 +17,7 @@ import {
 } from "framer-motion";
 import { Navigation } from "@/components/navigation/Navigation";
 import { Footer } from "@/components/ui/Footer";
+import { BruceChat } from "@/components/chat/BruceChat";
 import { HomePage } from "@/pages/HomePage";
 import { StartupIntro } from "@/components/animations/StartupIntro";
 const AboutPage = lazy(() =>
@@ -126,6 +127,7 @@ function SiteRoutes() {
         </Suspense>
       </main>
       <Footer />
+      <BruceChat />
     </>
   );
 }

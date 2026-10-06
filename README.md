@@ -42,3 +42,13 @@ The original local form simulated delivery. The new form validates its fields an
 This is a client-side routed application. Hosts must serve `index.html` for public page paths. No site has been deployed by this refactor.
 
 Browser visual and interaction QA remains outstanding because no connected browser was available in the editing session.
+
+## BRUCE website assistant
+
+BRUCE appears in the lower-right corner on every public page. Visitors can open a chat, use suggested questions, follow page links, start a new conversation, or toggle blinking. Reduced-motion preferences disable blinking. Messages remain in component memory for this tab and are cleared on reload; chat messages are not sent to a server.
+
+The current assistant uses local retrieval in `src/lib/bruce.ts`, backed by the existing company, service, product, client and values data. It supports named products/services, basic follow-up context, contact information and contextual demo/quote links. It is not a generative AI service: it cannot answer arbitrary questions, inspect private systems, confirm live availability, book meetings, or send messages. Missing information gets an explicit fallback to Contact ICE.
+
+Run `node .audit/verify-bruce.mjs` to check answer routing, follow-ups and unknown-information handling. A live AI upgrade would require a server-side endpoint, credentials and hosting configuration; no API key belongs in the Vite browser bundle.
+
+The BRUCE mascot is `public/brand/bruce-standing.png`. The reference edit used the built-in image-generation tool; its exact prompt is recorded in `.audit/bruce-asset.json`.
