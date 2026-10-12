@@ -451,6 +451,12 @@ p {
   border: 0;
   padding-left: 0;
 }
+@media (min-width: 761px) {
+  .stats-row-home { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  .stats-row-home > div:last-child { grid-column: 1 / -1; }
+}
 .stats-row strong {
   font-weight: 500;
   font-size: clamp(48px, 5.3vw, 85px);

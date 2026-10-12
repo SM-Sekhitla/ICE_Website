@@ -40,7 +40,7 @@ const entries: Entry[] = [
   { id: "social", terms: "social linkedin facebook instagram follow", text: "You can find ICE on these social channels.", sources: company.socials.map((item) => ({ label: item.label, href: item.url })) },
 ];
 
-const normalize = (text: string) => text.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+const normalize = (text: string) => text.toLowerCase().replace(/[’']/g, "").replace(/[^a-z0-9]+/g, " ").trim();
 const hasPhrase = (text: string, phrase: string) => ` ${text} `.includes(` ${normalize(phrase)} `);
 const stopwords = new Set("a an and are as at be frosty can could do does for from give hello help hey hi how i ice in is it its me my of on or please tell that the their them there these they this to us want we what which who with would you your about know more all".split(" "));
 const tokens = (text: string) => [...new Set(normalize(text).split(" ").filter((word) => word && !stopwords.has(word)).map((word) => word.length > 4 && word.endsWith("s") ? word.slice(0, -1) : word))];
@@ -48,7 +48,7 @@ const result = (entry: Entry): FrostyAnswer => ({ text: entry.text, sources: ent
 const getEntry = (id: string) => entries.find((entry) => entry.id === id)!;
 
 /** Local retrieval only: responses are sourced from the website, never invented. */
-export function answerFrosty(question: string, previousTopic?: string): FrostyAnswer {
+function answerWebsiteQuestion(question: string, previousTopic?: string): FrostyAnswer {
   const query = normalize(question);
   const words = tokens(query);
   if (/^(hi|hello|hey|good morning|good afternoon|good evening)( frosty)?$/.test(query)) {
@@ -105,4 +105,36 @@ export function answerFrosty(question: string, previousTopic?: string): FrostyAn
   }).filter((item) => item.count > 0 && item.coverage >= 0.5).sort((a, b) => b.count - a.count || b.coverage - a.coverage);
   if (ranked.length) return result(ranked[0].entry);
   return { text: "I couldn't find a confirmed answer to that in the website content. Try a product or service name, or ask about ICE's team, values, clients or contact details. For information that isn't published here, the ICE team can help.", sources: contact };
+}
+
+
+/** Handle conversational openings without swallowing a product or company question. */
+export function answerFrosty(question: string, previousTopic?: string): FrostyAnswer {
+  let query = normalize(question);
+  let opening = "";
+  const greeting = /^(?:hi|hello|hey|hiya|howzit|good morning|good afternoon|good evening)(?: there)?(?: frosty)?(?:\s+|$)/;
+  if (greeting.test(query)) {
+    opening = "Hi! ";
+    query = query.replace(greeting, "").trim();
+  }
+  const wellbeing = /^(?:how (?:are|r) (?:you|u)(?: doing| feeling)?|how(?:s| is) it going|how(?:s| is) your day|are you (?:ok|okay|well))(?: today)?(?: frosty)?(?:\s+|$)/;
+  if (wellbeing.test(query)) {
+    opening += "I'm good, thanks! And yourself? ";
+    query = query.replace(wellbeing, "").trim();
+  }
+  if (!query && opening) return { text: `${opening}How can I help you with ICE today?`, sources: [], topic: previousTopic };
+  const casualReplies: [RegExp, string][] = [
+    [/^(?:(?:i am|im|i m) )?(?:good|fine|well|great|doing well|doing good|not bad|all good)(?: thanks| thank you)?(?: and you| how about you| yourself)?$/, "Glad to hear it! I'm ready to help. What would you like to know about ICE?"],
+    [/^(?:and you|and yourself|what about you|how about you|yourself)$/, "I'm good, thanks! How can I help you with ICE today?"],
+    [/^(?:(?:i am|im|i m) )?(?:not good|not well|tired|having a bad day|sad|stressed)$/, "Sorry to hear that. I hope your day gets easier. Is there anything about ICE I can help you with?"],
+    [/^(?:bye|goodbye|see you|see you later|take care|cheers)(?: frosty)?$/, "Take care! Come back anytime you need a hand with ICE."],
+    [/^(?:thank you|thanks|thank you so much|thanks a lot|thank you very much)(?: frosty)?$/, "You're welcome! Happy to help."],
+    [/^(?:help|help me|can you help|can you help me|i need help|what can i ask)$/, "Of course! I can help you explore ICE's services and products, learn about the company, or find contact details. What do you need?"],
+    [/^(?:nice to meet you|pleased to meet you)(?: frosty)?$/, "Nice to meet you too! How can I help you explore ICE?"],
+  ];
+  for (const [pattern, text] of casualReplies) {
+    if (pattern.test(query)) return { text: opening + text, sources: [], topic: previousTopic };
+  }
+  const answer = answerWebsiteQuestion(query, previousTopic);
+  return opening ? { ...answer, text: opening.trim() + "\n\n" + answer.text } : answer;
 }

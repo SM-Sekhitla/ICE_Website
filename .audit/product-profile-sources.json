@@ -49,6 +49,19 @@
         11
       ],
       "notes": "Description and current capabilities sourced from the supplied SOMA document. PDF page 10 describes future IoT integration, which is not presented as an available feature. Existing website URL retained."
+    },
+    "product-prism": {
+      "source": "04_Rightsure_CRM_BRS_.docx.pdf",
+      "pdfPages": [
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10
+      ],
+      "notes": "User requested PRISM as a broker product. Public copy summarises design intent and core workflow scope. No claims of automatic underwriting, insurer pricing, portal automation, insurer APIs or compliance certification. Internal timelines, approval records and open decisions excluded. Logo supplied by user, matched to local prism-wordmark.png."
     }
   },
   "notes": [

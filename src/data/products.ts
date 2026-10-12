@@ -174,4 +174,27 @@ export const products: Product[] = [
       "Tamper-evident audit history linking actions, people and timestamps",
     ],
   },
+  {
+    // Broker-focused scope from 04_Rightsure_CRM_BRS_.docx.pdf, sections 2, 5 and 8.
+    id: "product-prism",
+    websiteUrl: null,
+    title: "PRISM",
+    subtitle: "Client Onboarding, CRM & Advisory Workflows for Insurance Brokers",
+    image: "/brand/prism-wordmark.png",
+    description:
+      "PRISM is designed for insurance brokers to manage the client journey from lead intake and onboarding through quotations, advice, acceptance and policy activation. It brings individual and business client records, organisation relationships, supporting documents and workflow status into a central CRM. Broker-led recommendations, compliance evidence and management reporting help teams coordinate follow-ups and maintain a traceable record of each client case, with brokers and insurers retaining control of advice and underwriting decisions.",
+    features: [
+      "Organisation and lead-source management with bulk member imports and duplicate checks",
+      "Web and approved WhatsApp-channel onboarding with consent and document capture",
+      "Individual and business client records, case ownership and workflow tracking",
+      "Broker mandate and underwriting-completion checkpoints",
+      "Tracking of insurer quotation requests and responses across email and portal channels",
+      "Storage of quote PDFs and broker-prepared Benefit Illustration comparisons",
+      "Advisor recommendations, client acceptance and declined-offer records",
+      "Record of Advice and FICA documentation and status tracking",
+      "Policy activation, payment-status, cancellation and reinstatement tracking",
+      "Communication history, searchable document archives and audit trails",
+      "Role-based access and management dashboards for pipeline and conversion reporting",
+    ],
+  },
 ];

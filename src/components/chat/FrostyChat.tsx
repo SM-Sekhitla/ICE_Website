@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
-import { Eye, EyeOff, RotateCcw, Send, X, ArrowUpRight } from "lucide-react";
+import { RotateCcw, Send, X, ArrowUpRight } from "lucide-react";
 import { useReducedMotion } from "framer-motion";
 import { answerFrosty, type FrostyAnswer } from "@/lib/frosty";
 import "./frosty.css";
@@ -26,7 +26,6 @@ function Mascot({ blinking }: { blinking: boolean }) {
 
 export function FrostyChat() {
   const [open, setOpen] = useState(false);
-  const [blink, setBlink] = useState(true);
   const [messages, setMessages] = useState<Message[]>([greeting]);
   const [draft, setDraft] = useState("");
   const [topic, setTopic] = useState<string>();
@@ -37,7 +36,7 @@ export function FrostyChat() {
   const closeButton = useRef<HTMLButtonElement>(null);
   const log = useRef<HTMLDivElement>(null);
   const nextId = useRef(1);
-  const blinking = blink && !reduced;
+  const blinking = !reduced;
 
   useEffect(() => {
     const visual = window.visualViewport;
@@ -105,7 +104,6 @@ export function FrostyChat() {
             <div className="frosty-avatar"><Mascot blinking={blinking} /></div>
             <div className="frosty-heading"><h2 id="frosty-title">Frosty<span>.</span></h2><p>Your ICE guide</p></div>
             <div className="frosty-actions">
-              <button type="button" aria-label={blink ? "Turn blinking off" : "Turn blinking on"} aria-pressed={blink} onClick={() => setBlink(!blink)} title={reduced ? "Reduced-motion settings keep Frosty still" : "Toggle blinking"}>{blink ? <Eye size={18} /> : <EyeOff size={18} />}</button>
               <button type="button" onClick={reset} aria-label="Start a new conversation" title="New conversation"><RotateCcw size={17} /></button>
               <button ref={closeButton} type="button" onClick={close} aria-label="Close Frosty chat"><X size={21} /></button>
             </div>

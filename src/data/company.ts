@@ -17,7 +17,7 @@ export const company = {
     "ICE delivers cutting-edge technology and digital transformation solutions tailored to each client's needs, aiming to boost efficiency, drive growth, and support sustainable development within Africa and beyond.",
   tagline: "Like ICE, we blend in and make a solution.",
   address: ["1059 Francis Baard", "Hatfield, Pretoria, Gauteng"],
-  emails: ["bdo@ice4po.co.za"],
+  emails: ["info@ice4po.co.za"],
   hours: "Monday – Friday / 08:00–16:00",
   footer:
     "We are ICE, the guys that melt into your organisation and create a solution. Get it ? We provide and maintain state of the art ICT integration systems. Hang on, we also do neat techie things. Give us your data and we will turn it into a cool tool that you can make data-driven decisions for now and the future – We are I<3.",

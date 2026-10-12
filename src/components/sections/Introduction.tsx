@@ -56,7 +56,7 @@ export function Introduction({ full = false }: { full?: boolean }) {
           )}
         </div>
       </div>
-      <div className="stats-row">
+      <div className={`stats-row${full ? "" : " stats-row-home"}`}>
         <div>
           <strong>
             <Counter value={2012} />
@@ -75,13 +75,13 @@ export function Introduction({ full = false }: { full?: boolean }) {
           </strong>
           <span className="mono">Years combined experience</span>
         </div>
-        <div>
+        {full && <div>
           <strong className="sector-stat">
             GOVERNMENT
             <br />+ PRIVATE
           </strong>
           <span className="mono">Sectors we serve</span>
-        </div>
+        </div>}
       </div>
     </section>
   );

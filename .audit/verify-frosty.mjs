@@ -6,6 +6,19 @@ const { answerFrosty } = await import(`data:text/javascript;base64,${Buffer.from
 const cases = [
   ['Hello', undefined, 'Hi!'],
   ['Hello Frosty', undefined, 'Hi!'],
+  ['How are you?', undefined, "I'm good, thanks! And yourself?"],
+  ['Hey Frosty, how are you doing today?', undefined, "I'm good, thanks!"],
+  ['How’s your day?', undefined, "I'm good, thanks!"],
+  ["I'm good, thanks", undefined, 'Glad to hear it!'],
+  ['And yourself?', undefined, "I'm good, thanks!"],
+  ['Goodbye Frosty', undefined, 'Take care!'],
+  ['Can you help me?', undefined, 'Of course!'],
+  ['Thanks a lot!', undefined, "You're welcome!"],
+  ['Nice to meet you', undefined, 'Nice to meet you too!'],
+  ['Tell me about PRISM', undefined, 'insurance brokers'],
+  ['Hi Frosty, how are you? Tell me about PRISM', undefined, 'Record of Advice'],
+  ['Hello, tell me about SOMA 360', undefined, 'geofencing verification'],
+  ['How are your clients supported?', undefined, 'RightSure Risk Managers'],
   ['Who are your clients?', undefined, 'RightSure Risk Managers'],
   ['Who are you?', undefined, "I'm Frosty"],
   ['What does ICE do?', undefined, 'Software Development'],
@@ -13,7 +26,7 @@ const cases = [
   ['Where is ICE based?', undefined, 'Hatfield'],
   ['Where can I see your products?', undefined, 'TAIP'],
   ['When are you open?', undefined, '08:00'],
-  ['What is your email?', undefined, 'bdo@ice4po.co.za'],
+  ['What is your email?', undefined, 'info@ice4po.co.za'],
   ['Who are your clients?', undefined, 'Afrique 360 Solutions'],
   ['What is the ICE Filter?', undefined, 'Entrepreneurial Mindset'],
   ['What is your vision and mission?', undefined, 'Our mission'],
@@ -36,11 +49,14 @@ const cases = [
 for (const [question, topic, expected] of cases) {
   const answer=answerFrosty(question,topic);
   assert(answer.text.includes(expected),`${question}: expected ${expected}, got ${answer.text}`);
-  assert(!answer.text.includes("info@ice4po.co.za"), "Removed email must not appear in answers");
   assert(!answer.text.includes("BRUCE"), "Assistant must introduce itself as Frosty");
   for (const link of answer.sources) assert(/^(\/|https:\/\/)/.test(link.href));
 }
 assert.equal(answerFrosty('Thanks','product-1').topic,'product-1');
+assert.equal(answerFrosty('How are you?', 'product-prism').topic, 'product-prism');
+assert.equal(answerFrosty('Hi Frosty, how are you? Tell me about PRISM').topic, 'product-prism');
+assert(answerFrosty('What are its features?', answerFrosty('How are you?', 'product-prism').topic).text.includes('Broker mandate'));
+assert.equal(answerFrosty('Tell me about PRISM').sources[0].href, '/our-products#product-prism');
 assert.equal(answerFrosty('Compare EAMS and ELMS').sources.length,2);
 assert.equal(answerFrosty('Can I book a demo?','product-1').sources[0].href,'/contact-us?product=TAIP');
 assert.equal(answerFrosty('How much does LEAF cost?').sources[0].href,'/contact-us?product=LEAF');
