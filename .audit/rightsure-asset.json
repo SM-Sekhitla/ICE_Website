@@ -1,0 +1,5 @@
+{
+  "tool": "Built-in image_gen",
+  "asset": "public/brand/rightsure-risk-managers-transparent.png",
+  "prompt": "Edit the provided RightSure Risk Managers logo. Remove the solid black background completely, make genuinely transparent background including negative spaces. Reconstruct the same logo cleanly at high resolution with sharp smooth edges, eliminating pixelation. Preserve original layout, shield shape, curved white/transparent diagonal swoosh, blue/gold colours, exact italic typography and capitalization: 'RightSure' on the top line, 'RISK MANAGERS' below in navy spaced capitals. Do not redesign, add symbols, or change wording. Flat logo only, no shadows, mockup, texture or checkerboard. Wide horizontal logo, fully visible with small transparent margins."
+}

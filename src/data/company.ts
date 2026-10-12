@@ -5,10 +5,11 @@ export const company = {
   established: 2012,
   teamSize: 30,
   experience: 100,
+  // About copy supplied by the user, 2026-10-12.
   paragraphs: [
-    "Industrial Computing Engineering (ICE) PTY LTD is a black owned pioneering analytics firm that is dedicated to driving technological advancement within government and private sectors established in 2012. With a diverse team of over 30 professionals, many of them young and innovative, ICE brings over 100 years of combined experience to its projects. The company specializes in IT, software solutions, and data analytics, particularly for government and private sectors.",
-    "ICE focuses on cutting-edge technology and strategic transformation to enhance operational efficiency and service delivery. ICE expertise include enterprise architecture, software development and ICT facilities management, inspiring clients with Data-driven decision-making and improved service delivery. ICE partners closely with clients to uncover challenges and deliver customized cutting-edge solutions.",
-    "Known for its collaborative approach, ICE works closely with clients to uncover challenges and deliver tailored solutions that support informed decision-making and long-term impact.",
+    "Established in 2012, Industrial Computing Engineering (ICE) (Pty) Ltd is a proudly African-owned, innovation-driven technology and engineering company dedicated to accelerating digital transformation, innovation, and operational excellence across both public and private industries. Powered by a multidisciplinary team of Full-Stack Software Engineers, Cloud Architects, AI-Native Developers, Data Scientists, DevOps Engineers, Infrastructure Specialists, Cybersecurity and CyberOps Professionals, Business Analysts, Industrial Engineers, and Enterprise Architects, ICE brings together over 100 years of combined industry experience to deliver secure, intelligent, and enterprise-grade technology solutions.",
+    "Our expertise spans the full technology ecosystem, including Artificial Intelligence, Machine Learning, Data Engineering, Business Intelligence, Cloud Computing, Enterprise Software Development, Intelligent Automation, ICT Infrastructure, Systems Integration, Cybersecurity, Enterprise Architecture, and Industrial Engineering.",
+    "Our client-centric approach combines strategic consulting, agile engineering, business process optimisation, solution architecture, systems integration, and ongoing technical support to deliver scalable, secure, and future-ready solutions tailored to your business challenges , empowering your organisation to optimise on operations and make data-driven decisions in real time.",
   ],
   vision:
     "To lead in African-owned innovation by delivering excellence in IT, software solutions, and data analytics empowering organizations to succeed in the digital age.",
@@ -16,7 +17,7 @@ export const company = {
     "ICE delivers cutting-edge technology and digital transformation solutions tailored to each client's needs, aiming to boost efficiency, drive growth, and support sustainable development within Africa and beyond.",
   tagline: "Like ICE, we blend in and make a solution.",
   address: ["1059 Francis Baard", "Hatfield, Pretoria, Gauteng"],
-  emails: ["bdo@ice4po.co.za", "info@ice4po.co.za"],
+  emails: ["bdo@ice4po.co.za"],
   hours: "Monday – Friday / 08:00–16:00",
   footer:
     "We are ICE, the guys that melt into your organisation and create a solution. Get it ? We provide and maintain state of the art ICT integration systems. Hang on, we also do neat techie things. Give us your data and we will turn it into a cool tool that you can make data-driven decisions for now and the future – We are I<3.",

@@ -51,4 +51,9 @@ export const clients = [
     sector: "Private sector",
     image: "/brand/afrique-360-solutions.png",
   },
+  {
+    name: "RightSure Risk Managers",
+    sector: "Private sector",
+    image: "/brand/rightsure-risk-managers-transparent.png",
+  },
 ];

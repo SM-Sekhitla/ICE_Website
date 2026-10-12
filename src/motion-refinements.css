@@ -47,7 +47,7 @@
   white-space: pre;
   text-align: center;
   font-family: "JetBrains Mono", monospace;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 24px;
   align-self: start;
   animation: binary-fall var(--rain-duration) var(--rain-delay) linear infinite;
@@ -72,7 +72,7 @@
     display: none;
   }
   .binary-rain-column {
-    font-size: 10px;
+    font-size: 12px;
   }
 }
 @media (prefers-reduced-motion: reduce) {

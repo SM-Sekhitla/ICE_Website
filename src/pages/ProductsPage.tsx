@@ -55,18 +55,34 @@ export function ProductsPage() {
             <div>
               {product.description && <p>{product.description}</p>}
               {product.features.length > 0 && (
-                <ul>
-                  {product.features.map((feature) => (
-                    <li key={feature}>{feature}</li>
-                  ))}
-                </ul>
+                <div className="product-capabilities">
+                  <h3>Key features</h3>
+                  <ul>
+                    {product.features.map((feature) => (
+                      <li key={feature}>{feature}</li>
+                    ))}
+                  </ul>
+                </div>
               )}
-              <Link
-                className="text-link"
-                to={`/contact-us?product=${encodeURIComponent(product.title)}`}
-              >
-                Request demo <span aria-hidden="true"><ArrowIcon /></span>
-              </Link>
+              <div className="product-actions">
+                <Link
+                  className="text-link"
+                  to={`/contact-us?product=${encodeURIComponent(product.title)}`}
+                >
+                  Request demo <span aria-hidden="true"><ArrowIcon /></span>
+                </Link>
+                {product.websiteUrl && (
+                  <a
+                    className="text-link"
+                    href={product.websiteUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Visit ${product.title} site (opens in a new tab)`}
+                  >
+                    Visit site <span aria-hidden="true"><ArrowIcon /></span>
+                  </a>
+                )}
+              </div>
             </div>
           </motion.article>
         ))}

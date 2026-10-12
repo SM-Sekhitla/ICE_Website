@@ -1,0 +1,58 @@
+{
+  "source": "2026_BUSINESS PROFILE01 (1).pdf",
+  "date": "2026-10-12",
+  "pageNumbering": "PDF page positions (1-based); printed page numbers are 12 and 13.",
+  "products": {
+    "product-1": {
+      "pdfPage": 11,
+      "profileName": null
+    },
+    "product-2": {
+      "pdfPage": 11,
+      "profileName": null
+    },
+    "product-3": {
+      "pdfPage": 12,
+      "profileName": null
+    },
+    "product-5": {
+      "pdfPage": 12,
+      "profileName": null
+    },
+    "product-6": {
+      "pdfPage": 11,
+      "profileName": null
+    },
+    "product-7": {
+      "pdfPage": 11,
+      "profileName": "LOTA"
+    },
+    "product-8": {
+      "pdfPage": 12,
+      "profileName": "LMS"
+    },
+    "product-tamp": {
+      "pdfPage": 12,
+      "profileName": "TAMPON"
+    },
+    "product-soma": {
+      "source": "ŠOMA360.pdf",
+      "pdfPages": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        11
+      ],
+      "notes": "Description and current capabilities sourced from the supplied SOMA document. PDF page 10 describes future IoT integration, which is not presented as an available feature. Existing website URL retained."
+    }
+  },
+  "notes": [
+    "Express Processes removed at user request.",
+    "Descriptions and feature lists paraphrase the supplied profile; existing product titles and deep-link IDs retained."
+  ]
+}

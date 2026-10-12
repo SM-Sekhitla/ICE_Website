@@ -43,9 +43,6 @@ export function ClientsPage() {
             </button>
           ))}
         </div>
-        <p className="mono" role="status">
-          {visible.length} clients
-        </p>
         <div className="client-list">
           {visible.map((client) => (
             <article key={client.name} className="client-entry">

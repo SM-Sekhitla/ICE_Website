@@ -4,10 +4,10 @@ import { products } from "../data/products";
 import { clients } from "../data/clients";
 import { values } from "../data/values";
 
-export type BruceSource = { label: string; href: string };
-export type BruceAnswer = { text: string; sources: BruceSource[]; topic?: string };
-type Entry = BruceAnswer & { id: string; terms: string };
-const source = (label: string, href: string): BruceSource[] => [{ label, href }];
+export type FrostySource = { label: string; href: string };
+export type FrostyAnswer = { text: string; sources: FrostySource[]; topic?: string };
+type Entry = FrostyAnswer & { id: string; terms: string };
+const source = (label: string, href: string): FrostySource[] => [{ label, href }];
 const contact = source("Contact ICE", "/contact-us");
 const productEntries: Entry[] = products.map((product) => ({
   id: product.id,
@@ -42,20 +42,20 @@ const entries: Entry[] = [
 
 const normalize = (text: string) => text.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
 const hasPhrase = (text: string, phrase: string) => ` ${text} `.includes(` ${normalize(phrase)} `);
-const stopwords = new Set("a an and are as at be bruce can could do does for from give hello help hey hi how i ice in is it its me my of on or please tell that the their them there these they this to us want we what which who with would you your about know more all".split(" "));
+const stopwords = new Set("a an and are as at be frosty can could do does for from give hello help hey hi how i ice in is it its me my of on or please tell that the their them there these they this to us want we what which who with would you your about know more all".split(" "));
 const tokens = (text: string) => [...new Set(normalize(text).split(" ").filter((word) => word && !stopwords.has(word)).map((word) => word.length > 4 && word.endsWith("s") ? word.slice(0, -1) : word))];
-const result = (entry: Entry): BruceAnswer => ({ text: entry.text, sources: entry.sources, topic: entry.id });
+const result = (entry: Entry): FrostyAnswer => ({ text: entry.text, sources: entry.sources, topic: entry.id });
 const getEntry = (id: string) => entries.find((entry) => entry.id === id)!;
 
 /** Local retrieval only: responses are sourced from the website, never invented. */
-export function answerBruce(question: string, previousTopic?: string): BruceAnswer {
+export function answerFrosty(question: string, previousTopic?: string): FrostyAnswer {
   const query = normalize(question);
   const words = tokens(query);
-  if (/^(hi|hello|hey|good morning|good afternoon|good evening)( bruce)?$/.test(query)) {
-    return { text: "Hi! I'm BRUCE, your ICE website guide. Ask me about the company, services, products or how to get in touch. What would you like to explore?", sources: [] };
+  if (/^(hi|hello|hey|good morning|good afternoon|good evening)( frosty)?$/.test(query)) {
+    return { text: "Hi! I'm Frosty, your ICE website guide. Ask me about the company, services, products or how to get in touch. What would you like to explore?", sources: [] };
   }
-  if (/^(thanks|thank you|thank you bruce|thanks bruce|great|cool|ok|okay)$/.test(query)) return { text: "You're welcome! I'm here if you want to explore anything else about ICE.", sources: [], topic: previousTopic };
-  if (/\b(who are you|your name|are you ai|what can you do|are you human|are you a robot)\b/.test(query)) return { text: "I'm BRUCE, ICE's website assistant. I look up information published on this site and link you to the relevant pages. I can help with company information, services, products, clients and contact details. I'm not a live team member.", sources: [] };
+  if (/^(thanks|thank you|thank you frosty|thanks frosty|great|cool|ok|okay)$/.test(query)) return { text: "You're welcome! I'm here if you want to explore anything else about ICE.", sources: [], topic: previousTopic };
+  if (/\b(who are you|your name|are you ai|what can you do|are you human|are you a robot)\b/.test(query)) return { text: "I'm Frosty, ICE's website assistant. I look up information published on this site and link you to the relevant pages. I can help with company information, services, products, clients and contact details. I'm not a live team member.", sources: [] };
 
   const namedProducts = products.filter((item) => hasPhrase(query, item.title));
   const namedServices = services.filter((item) => hasPhrase(query, item.title.replace(" (BI)", "")));
@@ -81,7 +81,7 @@ export function answerBruce(question: string, previousTopic?: string): BruceAnsw
     [/\b(vision)\b/, "vision"], [/\b(mission)\b/, "mission"],
     [/\b(values|ethics|filter)\b/, "values"], [/\b(careers?|jobs?|hiring|vacanc\w*|intern\w*|cv|resume)\b/, "careers"],
     [/\b(address|location|located|directions|where are you|where is ice|where is your office|where are your offices|where.*based)\b/, "location"],
-    [/\b(hours|opening|closing|weekend|saturday|sunday)\b/, "hours"],
+    [/\b(hours|opening|closing|when.*open|weekend|saturday|sunday)\b/, "hours"],
     [/\b(contact|email|phone|telephone|human|reach|talk to|touch)\b/, "contact"],
     [/\b(clients?|customers?|sectors?)\b/, "clients"],
     [/\b(services|capabilities|offerings|what do you offer|what do you do|what does ice do|what can ice do)\b/, "services"],

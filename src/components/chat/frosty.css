@@ -1,0 +1,50 @@
+.frosty-widget { --frosty-red: #c1121f; font-family: "Space Grotesk", "Inter", Arial, sans-serif; color: #222; }
+.frosty-launcher { position: fixed; z-index: 85; bottom: max(14px, env(safe-area-inset-bottom)); right: max(20px, env(safe-area-inset-right)); width: 128px; padding: 0; display: flex; flex-direction: column; align-items: center; gap: 5px; border-radius: 22px; }
+.frosty-invitation { display: inline-flex; align-items: center; gap: 7px; padding: 9px 13px; border: 1px solid #e7e1e1; border-radius: 20px 20px 3px 20px; background: white; color: #222; font-size: 14px; font-weight: 600; white-space: nowrap; box-shadow: 0 3px 18px #0002; }
+.frosty-status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--frosty-red); }
+.frosty-mascot { display: block; position: relative; width: 100%; }
+.frosty-mascot img { width: 100%; height: auto; filter: drop-shadow(0 5px 7px #0003); }
+.frosty-launcher:hover .frosty-invitation { border-color: var(--frosty-red); }
+.frosty-eyelid { position: absolute; background: linear-gradient(#b7b8ba, #d1d2d4); border-radius: 50%; transform: scaleY(0); transform-origin: center; pointer-events: none; }
+.frosty-eyelid-left { left: 32.6%; top: 24.6%; width: 8.1%; height: 5.5%; }
+.frosty-eyelid-right { left: 58.4%; top: 25.8%; width: 8.1%; height: 5.5%; }
+.frosty-mascot[data-blinking="true"] .frosty-eyelid { animation: frosty-blink 6.8s infinite; }
+@keyframes frosty-blink { 0%, 43%, 47%, 100% { transform: scaleY(0); } 45% { transform: scaleY(1); } }
+.frosty-panel { position: fixed; right: max(20px, env(safe-area-inset-right)); z-index: 110; width: min(400px, calc(100vw - 24px)); height: 620px; display: flex; flex-direction: column; overflow: hidden; background: #faf9f7; border: 1px solid #e5dddd; border-radius: 22px; box-shadow: 0 18px 80px #0004, 0 2px 12px #0001; }
+.frosty-header { display: flex; align-items: center; gap: 12px; flex-shrink: 0; padding: 16px; background: #131315; color: white; }
+.frosty-avatar { flex-shrink: 0; width: 48px; height: 52px; overflow: hidden; border-radius: 14px; background: #29292c; }
+.frosty-avatar .frosty-mascot { width: 72px; margin-left: -12px; }
+.frosty-heading { flex: 1; min-width: 0; }
+.frosty-heading h2 { font-size: 22px; font-weight: 700; letter-spacing: -0.06em; line-height: 1.1; }
+.frosty-heading h2 span { color: #f15a66; }
+.frosty-heading p { font-size: 13px; color: #c6c6cf; margin-top: 4px; }
+.frosty-actions { display: flex; gap: 2px; }
+.frosty-actions button { display: grid; place-items: center; width: 34px; height: 36px; border-radius: 8px; color: #e5e5eb; }
+.frosty-actions button:hover { background: #ffffff20; }
+.frosty-messages { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 20px 16px; scrollbar-width: thin; }
+.frosty-chat-intro { font-size: 10px; letter-spacing: 0.1em; color: #71696a; text-align: center; margin-bottom: 20px; }
+.frosty-message { max-width: 93%; margin-bottom: 16px; padding: 14px 16px; border-radius: 3px 16px 16px; background: white; border: 1px solid #eae4e4; overflow-wrap: anywhere; }
+.frosty-speaker { display: block; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; color: #8b0e18; margin-bottom: 7px; }
+.frosty-message p { white-space: pre-wrap; font-size: 15px; line-height: 1.65; }
+.frosty-message-user { margin-left: auto; background: #99121d; color: white; border-color: #99121d; border-radius: 16px 3px 16px 16px; }
+.frosty-message-user .frosty-speaker { color: #ffdbdf; }
+.frosty-sources { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.frosty-sources a { display: inline-flex; align-items: center; gap: 6px; color: #99121d; font-size: 13px; font-weight: 600; border-bottom: 1px solid #e4bfc3; padding: 4px 0; }
+.frosty-starters { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.frosty-starters button { display: inline-flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 12px; border: 1px solid #d9cbcd; background: transparent; color: #7c1720; border-radius: 10px; font-size: 14px; text-align: left; }
+.frosty-starters button:hover { background: #fff; border-color: var(--frosty-red); }
+.frosty-composer { padding: 12px 14px max(12px, env(safe-area-inset-bottom)); border-top: 1px solid #e8e1e1; background: white; flex-shrink: 0; }
+.frosty-input-row { display: flex; gap: 8px; padding: 5px; border: 1px solid #d6ced0; border-radius: 12px; }
+.frosty-input-row:focus-within { border-color: var(--frosty-red); box-shadow: 0 0 0 2px #c1121f12; }
+.frosty-input-row input { flex: 1; min-width: 0; width: 100%; border: 0; background: transparent; color: #222; padding: 8px; font-size: 18px; outline: none; }
+.frosty-input-row button { display: grid; place-items: center; flex-shrink: 0; width: 40px; min-height: 40px; border-radius: 8px; background: var(--frosty-red); color: white; }
+.frosty-input-row button:disabled { opacity: 0.4; cursor: default; }
+.frosty-composer > p { margin: 8px 0 0; text-align: center; color: #786d70; font-size: 11px; line-height: 1.5; }
+.frosty-widget button:focus-visible, .frosty-widget a:focus-visible { outline: 2px solid #f4b942; outline-offset: 2px; }
+@media (max-width: 760px) {
+  .frosty-launcher { width: 94px; right: 12px; bottom: max(10px, env(safe-area-inset-bottom)); }
+  .frosty-invitation { font-size: 12px; padding: 7px 10px; }
+  .frosty-panel { right: 12px; border-radius: 18px; }
+  .frosty-actions button { width: 36px; height: 44px; }
+}
+@media (prefers-reduced-motion: reduce) { .frosty-mascot[data-blinking="true"] .frosty-eyelid { animation: none; } }

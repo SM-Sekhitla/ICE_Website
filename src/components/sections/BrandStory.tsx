@@ -250,7 +250,7 @@ export function ProductExperience() {
           IN PRACTICE.
         </h2>
         <Link to="/our-products" className="text-link">
-          All eight products <span aria-hidden="true"><ArrowIcon /></span>
+          All products <span aria-hidden="true"><ArrowIcon /></span>
         </Link>
       </div>
       <div className="product-features-list">
